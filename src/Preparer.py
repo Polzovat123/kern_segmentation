@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 from numpy import typing as npt
 
-from src.utils.Smoother import ForieGaussianSmoother
+from src.utils.Smoother import FourierGaussianSmoother
 from src.utils.Cutter import TresholdCutter
 
 

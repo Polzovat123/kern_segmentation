@@ -77,7 +77,7 @@ class TresholdCutter(Cutter):
         mask_ellipse_inv = ~mask_ellipse
 
         data = data.astype(float)
-        data[mask_ellipse_inv == 255.0] = 0.0
+        data[mask_ellipse_inv == 255.0] = np.nan
         return data
 
 

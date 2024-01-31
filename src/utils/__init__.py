@@ -1,2 +1,2 @@
 from .Cutter import TresholdCutter
-from .Smoother import ForieGaussianSmoother
+from .Smoother import FourierGaussianSmoother
