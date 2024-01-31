@@ -1,2 +1,2 @@
-from .Cutter import TrasholdCutter
-from .Smoother import FurieGaussianSmoother
+from .Cutter import TresholdCutter
+from .Smoother import ForieGaussianSmoother

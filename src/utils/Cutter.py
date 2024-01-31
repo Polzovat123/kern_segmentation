@@ -22,7 +22,7 @@ class CutterBuilder(metaclass=ABCMeta):
     def create_cutter(window_size: int) -> Cutter:
         pass
 
-class TrasholdCutter(Cutter):
+class TresholdCutter(Cutter):
     """Функтор обрезки данных, основанный на процедуре отсечения по порогу"""
 
     _threshold = None
@@ -77,7 +77,7 @@ class TrasholdCutter(Cutter):
         mask_ellipse_inv = ~mask_ellipse
 
         data = data.astype(float)
-        data[mask_ellipse_inv == 255.0] = 255.0
+        data[mask_ellipse_inv == 255.0] = 0.0
         return data
 
 
