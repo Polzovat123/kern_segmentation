@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from numpy import typing as npt
 
-class FurieGaussianSmoother:
+class FourierGaussianSmoother:
     """Функтор сглаживания данных, основанный на процедуре фильтрации Фурье"""
 
     """
@@ -48,5 +48,5 @@ class FurieGaussianSmoother:
 
     @staticmethod
     def calculate(data: npt.NDArray[np.float_], kernel_size: int = 5, sigma: float = 5) -> npt.NDArray[np.float_]:
-        return FurieGaussianSmoother.__calculate(data,kernel_size, sigma)
+        return FourierGaussianSmoother.__calculate(data, kernel_size, sigma)
 

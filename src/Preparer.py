@@ -5,8 +5,8 @@ import cv2
 import numpy as np
 from numpy import typing as npt
 
-from src.utils.Smoother import FurieGaussianSmoother
-from src.utils.Cutter import TrasholdCutter
+from src.utils.Smoother import ForieGaussianSmoother
+from src.utils.Cutter import TresholdCutter
 
 
 class Preparer:
@@ -42,14 +42,15 @@ class Preparer:
     def calculate(data: npt.NDArray[np.float_],
                     sigma: float = 0, kernel_size: int = 3,  sobel_kernel_size: int = 5) -> (
     npt.NDArray[np.float_], npt.NDArray[np.float_], npt.NDArray[np.float_]):
-        _trashold_cutter = TrasholdCutter()
-        #_furie_gaussian = FurieGaussianSmoother() пока не работает
+        _trashold_cutter = TresholdCutter()
+        #_furie_gaussian = FourierGaussianSmoother() пока не работает
 
         #data_blur = cv2.boxFilter(data, -1, (kernel_size, kernel_size), normalize=True)
         data_blur = cv2.GaussianBlur(data, (kernel_size, kernel_size), sigma)
         cutted_data = _trashold_cutter.cut_data(data_blur)
+        scaled_data = Preparer.__std_scaler(cutted_data)
 
-        sobelx = cv2.Sobel(src=cutted_data, ddepth=cv2.CV_64F, dx=1, dy=0, ksize=sobel_kernel_size)
-        sobely = cv2.Sobel(src=cutted_data, ddepth=cv2.CV_64F, dx=0, dy=1, ksize=sobel_kernel_size)
+        sobelx = cv2.Sobel(src=scaled_data, ddepth=cv2.CV_64F, dx=1, dy=0, ksize=sobel_kernel_size)
+        sobely = cv2.Sobel(src=scaled_data, ddepth=cv2.CV_64F, dx=0, dy=1, ksize=sobel_kernel_size)
 
         return cutted_data, sobelx, sobely
