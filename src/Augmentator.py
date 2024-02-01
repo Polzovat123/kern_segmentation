@@ -59,25 +59,39 @@ class Augmentator:
         X = np.stack((data_blur_rotated_patches, sobelx_rotated_patches, sobely_rotated_patches), axis=3)
 
         return X
+                         
+    def augment_data(data_blur: npt.NDArray[np.float_],
+                     sobelx: npt.NDArray[np.float_],
+                     sobely: npt.NDArray[np.float_],
+                     patch_size: int = 128,
+                     d_a: int = 10,
+                     sigma: float = 0.5
+                     ) -> (npt.NDArray[np.float_]):
+        data_blur_patches = Augmentator.__patch_data(data_blur, patch_size)
+        sobelx_patches = Augmentator.__patch_data(sobelx, patch_size)
+        sobely_patches = Augmentator.__patch_data(sobely, patch_size)
 
-    @staticmethod
-    def __get_label_channels(label: npt.NDArray[np.float_]) -> list[npt.NDArray[np.float_]]:
-        label_channels = []
-        for i in range(3):
-            label_channels.append(label[:, :, i])
-        return label_channels
+
+        data_blur_rotated_patches = Augmentator.__data_rotate(data_blur_patches, d_a)
+        sobelx_rotated_patches = Augmentator.__data_rotate(sobelx_patches, d_a)
+        sobely_rotated_patches = Augmentator.__data_rotate(sobely_patches, d_a)
+
+        X = np.stack((data_blur_rotated_patches, sobelx_rotated_patches, sobely_rotated_patches), axis=3)
+
+        return X
+
     @staticmethod
     def augment_label(label: npt.NDArray[np.float_],
-                     patch_size: int = 64,
+                     patch_size: int = 128,
                      d_a: int = 10,
-                     sigma: float = 0.1
+                     sigma: float = 0.5
                      ) -> (npt.NDArray[np.float_]):
 
-        label_pathes = patchify(label, (patch_size, patch_size, 3), step=patch_size)
+        label_patches =  Augmentator.__patch_data(label, patch_size)
 
-        label_rotated_pathes = Augmentator.__data_rotate(label_pathes, d_a)
+        label_rotated_patches = Augmentator.__data_rotate(label_patches, d_a)
 
-        return label_rotated_pathes
+        return label_rotated_patches
 
 
 
