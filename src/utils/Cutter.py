@@ -8,23 +8,8 @@ from cv2 import Mat
 from numpy import typing as npt, ndarray, dtype, generic
 
 
-class Cutter(metaclass=ABCMeta):
-    """Абстрактный функтор обрезки данных"""
-    @abstractmethod
-    def cut_data(cls, data: npt.NDArray[np.float_]) -> npt.NDArray[np.float_]:
-        pass
-
-class CutterBuilder(metaclass=ABCMeta):
-    """Абстрактный создатель функторов обрезки данных"""
-
-    @staticmethod
-    @abstractmethod
-    def create_cutter(window_size: int) -> Cutter:
-        pass
-
-class TresholdCutter(Cutter):
+class TresholdCutter:
     """Функтор обрезки данных, основанный на процедуре отсечения по порогу"""
-
     _threshold = None
 
     def __init__(self, threshold: float = None):
