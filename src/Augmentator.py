@@ -1,4 +1,3 @@
-import PIL
 import numpy as np
 from numpy import typing as npt
 from patchify import patchify
@@ -45,7 +44,6 @@ class Augmentator:
                      sobely: npt.NDArray[np.float_],
                      patch_size: int = 128,
                      d_a: int = 10,
-                     sigma: float = 0.5
                      ) -> (npt.NDArray[np.float_]):
         data_blur_patches = Augmentator.__patch_data(data_blur, patch_size)
         sobelx_patches = Augmentator.__patch_data(sobelx, patch_size)
@@ -65,7 +63,6 @@ class Augmentator:
                      sobely: npt.NDArray[np.float_],
                      patch_size: int = 128,
                      d_a: int = 10,
-                     sigma: float = 0.5
                      ) -> (npt.NDArray[np.float_]):
         data_blur_patches = Augmentator.__patch_data(data_blur, patch_size)
         sobelx_patches = Augmentator.__patch_data(sobelx, patch_size)
@@ -84,7 +81,6 @@ class Augmentator:
     def augment_label(label: npt.NDArray[np.float_],
                      patch_size: int = 128,
                      d_a: int = 10,
-                     sigma: float = 0.5
                      ) -> (npt.NDArray[np.float_]):
 
         label_patches =  Augmentator.__patch_data(label, patch_size)

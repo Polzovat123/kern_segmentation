@@ -1,6 +1,3 @@
-from abc import abstractmethod, ABCMeta
-
-import PIL
 import cv2
 import numpy as np
 from numpy import typing as npt
