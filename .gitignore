@@ -1,4 +1,5 @@
-/kern_segmentation/notebooks/
+/kern_segmentation/examples/
 /kern_segmentation/pictures/
 /.idea/
 /kern_segmentation/scripts/pictures/
+/kern_segmentation/src/ai_models/notebooks/True_FCNN.ipynb

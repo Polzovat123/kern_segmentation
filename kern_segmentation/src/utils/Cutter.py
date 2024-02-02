@@ -31,7 +31,9 @@ class TresholdCutter:
             self._threshold = self.get_auto_threshold(data)
 
         _, thresh_img = cv2.threshold(data, self._threshold, 255, cv2.THRESH_BINARY)
+        thresh_img = cv2.convertScaleAbs(thresh_img)  # Ensure it's CV_8UC1
         contours, _ = cv2.findContours(thresh_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
         return contours
 
     def __get_ellipse_contour(self, data: npt.NDArray[np.float_], contours: Sequence[
@@ -53,6 +55,7 @@ class TresholdCutter:
 
 
         mask_ellipse = np.zeros_like(data, dtype=np.uint8)
+
         cv2.drawContours(mask_ellipse, [ellipse_contour], -1, (255, 255, 255), thickness=cv2.FILLED)
 
 
