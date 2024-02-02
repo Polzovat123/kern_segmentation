@@ -2635,6 +2635,23 @@ files = [
 ]
 
 [[package]]
+name = "tifffile"
+version = "2024.1.30"
+description = "Read and write TIFF files"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "tifffile-2024.1.30-py3-none-any.whl", hash = "sha256:40cb48f661acdfea16cb00dc8941bd642b8eb5c59bca6de6a54091bee9ee2699"},
+    {file = "tifffile-2024.1.30.tar.gz", hash = "sha256:66cf1fbc3fee8f87670ffd415c1e758ea1779376bdfaa9d0dc6ce634e6bc52ea"},
+]
+
+[package.dependencies]
+numpy = "*"
+
+[package.extras]
+all = ["defusedxml", "fsspec", "imagecodecs (>=2023.8.12)", "lxml", "matplotlib", "zarr"]
+
+[[package]]
 name = "tinycss2"
 version = "1.2.1"
 description = "A tiny CSS parser"
@@ -2827,4 +2844,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "87ae72f2c8ad7fabefde272a8eefb625e04dc6b25b7d08d95151171a7a1516a6"
+content-hash = "1b832d45fc017e658dc93c47ea11ca8de10d6d3cdfcc698aeaa9977e379d65fb"

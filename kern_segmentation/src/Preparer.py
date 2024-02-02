@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from numpy import typing as npt
 
-from src.utils.Cutter import TresholdCutter
+from kern_segmentation.src.utils.Cutter import TresholdCutter
 
 
 class Preparer:

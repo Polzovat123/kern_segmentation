@@ -1,10 +1,7 @@
-from abc import ABCMeta, abstractmethod
 from typing import Any, Sequence
 
-import PIL
 import cv2
 import numpy as np
-from cv2 import Mat
 from numpy import typing as npt, ndarray, dtype, generic
 
 

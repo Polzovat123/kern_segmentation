@@ -17,6 +17,7 @@ jupyter = "^1.0.0"
 patchify = "^0.2.3"
 scikit-learn = "^1.4.0"
 tqdm = "^4.66.1"
+tifffile = "^2024.1.30"
 
 
 [build-system]
@@ -24,3 +25,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 #tool poetry scripts
+
+[tool.poetry.scripts]
+prepare_data = "kern_segmentation.scripts.examples.prepare_data:main"
+augment_data = "kern_segmentation.scripts.examples.augment_data:main"
