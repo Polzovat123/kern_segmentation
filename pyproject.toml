@@ -18,6 +18,7 @@ patchify = "^0.2.3"
 scikit-learn = "^1.4.0"
 tqdm = "^4.66.1"
 tifffile = "^2024.1.30"
+seg = "^0.0.1"
 
 
 [build-system]

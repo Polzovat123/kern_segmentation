@@ -3,8 +3,8 @@ import os
 import cv2
 from tifffile import tifffile
 
-from kern_segmentation.src.Augmentator import Augmentator
-from kern_segmentation.src.Preparer import Preparer
+from preprocessing.Augmentator import Augmentator
+from preprocessing.Preparer import Preparer
 
 def is_valid_file(parser, arg):
     """

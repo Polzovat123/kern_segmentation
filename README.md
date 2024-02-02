@@ -37,7 +37,7 @@ poetry install
 ```
 
 ## Использование
-Примеры использования методов библиотеки можно найти в notebooks/test.ipynb
+Примеры использования методов библиотеки можно найти в notebooks/examples/test.ipynb
 Скрипт для демо обработки данных можно запустить через
 ```bash
 poetry run prepare_data <parameters>
@@ -45,4 +45,3 @@ poetry run prepare_data <parameters>
 parameters:
 - --input_dir - путь к папке с исходными данными
 - --output_dir (optional) - путь к папке, в которую будут сохранены обработанные данные
-- --

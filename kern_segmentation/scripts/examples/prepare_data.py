@@ -2,7 +2,7 @@ import argparse
 import os
 import cv2
 from matplotlib import pyplot as plt
-from kern_segmentation.src.Preparer import Preparer
+from preprocessing.Preparer import Preparer
 
 def is_valid_file(parser, arg):
     """
